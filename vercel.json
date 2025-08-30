@@ -1,23 +1,5 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "server.js",
-      "use": "@vercel/node",
-      "config": {
-        "maxDuration": 30,
-        "includeFiles": ".next/**"
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "/server.js"
-    }
-  ],
-  "installCommand": "npm ci --production",
-  "env": {
-    "NODE_ENV": "production"
-  }
+  "framework": "nextjs",
+  "buildCommand": "echo 'Using pre-built .next directory'",
+  "installCommand": "npm install --production"
 }
