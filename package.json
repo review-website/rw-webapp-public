@@ -1,17 +1,35 @@
 {
   "name": "women-review-trpg-deploy",
-  "version": "1.0.0",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "node server.js"
-  },
-  "engines": {
-    "node": ">=18 <=22"
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf .next && rm -rf out",
+    "dev:clean": "npm run clean && npm run dev",
+    "analyze": "ANALYZE=true npm run build",
+    "check": "npm run lint && npm run type-check",
+    "build:analyze": "npm run build && node scripts/analyze-bundle.js",
+    "build:prod": "NODE_ENV=production npm run build",
+    "bundle-size": "npm run build && node scripts/analyze-bundle.js"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.2.3",
+    "@supabase/supabase-js": "^2.38.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.539.0",
     "next": "^14.2.31",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
+    "react-hook-form": "^7.47.0",
     "styled-jsx": "5.1.1",
-    "@supabase/supabase-js": "^2.38.0"
-  }
+    "tailwind-merge": "^3.3.1",
+    "zustand": "^5.0.8"
+  },
+  "devDependencies": {}
 }
