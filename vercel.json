@@ -3,7 +3,11 @@
   "builds": [
     {
       "src": "server.js",
-      "use": "@vercel/node"
+      "use": "@vercel/node",
+      "config": {
+        "maxDuration": 30,
+        "includeFiles": ".next/**"
+      }
     }
   ],
   "routes": [
@@ -11,5 +15,9 @@
       "src": "/(.*)",
       "dest": "/server.js"
     }
-  ]
+  ],
+  "installCommand": "npm ci --production",
+  "env": {
+    "NODE_ENV": "production"
+  }
 }
