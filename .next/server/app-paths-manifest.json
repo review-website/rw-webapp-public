@@ -1,0 +1,15 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/admin/page": "app/admin/page.js",
+  "/api/modules/[id]/route": "app/api/modules/[id]/route.js",
+  "/api/modules/route": "app/api/modules/route.js",
+  "/api/tags/categories/route": "app/api/tags/categories/route.js",
+  "/api/tags/votes/route": "app/api/tags/votes/route.js",
+  "/api/tags/votes/user/route": "app/api/tags/votes/user/route.js",
+  "/modules/[id]/page": "app/modules/[id]/page.js",
+  "/page": "app/page.js",
+  "/modules/page": "app/modules/page.js",
+  "/profile/page": "app/profile/page.js",
+  "/vote/[moduleId]/page": "app/vote/[moduleId]/page.js",
+  "/api/search/route": "app/api/search/route.js"
+}
