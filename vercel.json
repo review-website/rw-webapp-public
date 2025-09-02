@@ -3,10 +3,5 @@
   "buildCommand": "npm run build",
   "installCommand": "npm ci",
   "cleanUrls": true,
-  "trailingSlash": false,
-  "functions": {
-    "src/app/api/**/*.ts": {
-      "runtime": "nodejs20.x"
-    }
-  }
+  "trailingSlash": false
 }
