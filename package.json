@@ -1,30 +1,48 @@
 {
-  "name": "women-review-trpg-deploy",
-  "version": "1.0.0",
+  "name": "women-review-trpg",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "start": "node server.js"
-  },
-  "engines": {
-    "node": ">=18 <=22"
+    "dev": "next dev",
+    "build": "next build",
+    "build:static": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "lint:fix": "next lint --fix",
+    "type-check": "tsc --noEmit",
+    "clean": "rm -rf .next && rm -rf out",
+    "dev:clean": "npm run clean && npm run dev",
+    "analyze": "ANALYZE=true npm run build",
+    "check": "npm run lint && npm run type-check",
+    "build:analyze": "npm run build && node scripts/analyze-bundle.js",
+    "build:prod": "NODE_ENV=production npm run build:static",
+    "bundle-size": "npm run build && node scripts/analyze-bundle.js"
   },
   "dependencies": {
+    "@radix-ui/react-slot": "^1.2.3",
+    "@supabase/supabase-js": "^2.38.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.539.0",
     "next": "^14.2.31",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "styled-jsx": "5.1.1",
-    "@next/env": "14.2.32",
-    "@swc/helpers": "0.5.5",
-    "postcss": "8.4.31",
-    "graceful-fs": "^4.2.11",
-    "caniuse-lite": "^1.0.30001579",
-    "busboy": "1.6.0",
-    "@supabase/supabase-js": "^2.38.0",
-    "zustand": "^5.0.8",
     "react-hook-form": "^7.47.0",
-    "clsx": "^2.1.1",
+    "styled-jsx": "5.1.1",
     "tailwind-merge": "^3.3.1",
-    "lucide-react": "^0.539.0",
-    "@radix-ui/react-slot": "^1.2.3",
-    "class-variance-authority": "^0.7.1"
+    "zustand": "^5.0.8"
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^7.0.2",
+    "@types/node": "^20.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "autoprefixer": "^10.0.0",
+    "cssnano": "^7.1.1",
+    "eslint": "^8.0.0",
+    "eslint-config-next": "14.0.0",
+    "postcss": "^8.0.0",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5.0.0"
   }
 }

@@ -1,15 +1,66 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    serverComponentsExternalPackages: ['@supabase/supabase-js']
+    serverComponentsExternalPackages: ['@supabase/supabase-js'],
+    missingSuspenseWithCSRBailout: false,
   },
+  
+  // 启用 tree shaking 优化
   swcMinify: true,
-  compress: true,
-  images: {
-    formats: ['image/webp', 'image/avif'],
-    minimumCacheTTL: 60,
+  
+  // 优化打包配置
+  webpack: (config, { dev, isServer }) => {
+    // 生产环境优化
+    if (!dev && !isServer) {
+      // 启用 tree shaking
+      config.optimization.usedExports = true;
+      config.optimization.sideEffects = false;
+      
+      // 代码分割优化
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+          // 第三方库分离
+          vendor: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'vendors',
+            chunks: 'all',
+            priority: 10,
+          },
+          // Supabase 单独分离
+          supabase: {
+            test: /[\\/]node_modules[\\/]@supabase[\\/]/,
+            name: 'supabase',
+            chunks: 'all',
+            priority: 20,
+          },
+          // React 相关库分离
+          react: {
+            test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+            name: 'react',
+            chunks: 'all',
+            priority: 30,
+          },
+        },
+      };
+    }
+    
+    return config;
   },
-  // 不使用standalone模式，让Vercel用标准方式处理
+  
+  // 压缩配置
+  compress: true,
+  
+  // 图片优化
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: '**',
+      },
+    ],
+  },
+  
 };
 
 module.exports = nextConfig;

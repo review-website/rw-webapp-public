@@ -1,9 +1,0 @@
-"use strict";(()=>{var e={};e.id=861,e.ids=[861],e.modules={399:e=>{e.exports=require("next/dist/compiled/next-server/app-page.runtime.prod.js")},517:e=>{e.exports=require("next/dist/compiled/next-server/app-route.runtime.prod.js")},111:(e,r,t)=>{t.r(r),t.d(r,{originalPathname:()=>l,patchFetch:()=>I,requestAsyncStorage:()=>d,routeModule:()=>c,serverHooks:()=>m,staticGenerationAsyncStorage:()=>g});var s={};t.r(s),t.d(s,{GET:()=>u});var a=t(9303),i=t(8716),o=t(670),n=t(7070),p=t(7982);async function u(){try{let{data:e,error:r}=await p.O.from("tag_categories").select(`
-        *,
-        tag_subcategories (
-          id,
-          name,
-          description,
-          order_index
-        )
-      `).order("order_index");if(r)return n.NextResponse.json({error:r.message},{status:500});return n.NextResponse.json(e)}catch(e){return n.NextResponse.json({error:"Internal server error"},{status:500})}}let c=new a.AppRouteRouteModule({definition:{kind:i.x.APP_ROUTE,page:"/api/tags/categories/route",pathname:"/api/tags/categories",filename:"route",bundlePath:"app/api/tags/categories/route"},resolvedPagePath:"/home/runner/work/rw-webapp/rw-webapp/src/app/api/tags/categories/route.ts",nextConfigOutput:"standalone",userland:s}),{requestAsyncStorage:d,staticGenerationAsyncStorage:g,serverHooks:m}=c,l="/api/tags/categories/route";function I(){return(0,o.patchFetch)({serverHooks:m,staticGenerationAsyncStorage:g})}},7982:(e,r,t)=>{t.d(r,{O:()=>o});let s=require("@supabase/supabase-js"),a="https://eguhisfzeimoivfmikgb.supabase.co",i="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImVndWhpc2Z6ZWltb2l2Zm1pa2diIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTUzOTMzNzEsImV4cCI6MjA3MDk2OTM3MX0.3E8MD1a8SebcCo2IDQmXd9BFv18zh1213eGfZ-3EcD0",o=(0,s.createClient)(a,i);(0,s.createClient)(a,process.env.SUPABASE_SERVICE_ROLE_KEY||i)}};var r=require("../../../../webpack-runtime.js");r.C(e);var t=e=>r(r.s=e),s=r.X(0,[276,972],()=>t(111));module.exports=s})();
